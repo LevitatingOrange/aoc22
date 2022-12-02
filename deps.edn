@@ -1,0 +1,9 @@
+{:paths ["src"]
+ :deps  {hato/hato {:mvn/version "0.9.0"}
+         org.clojure/core.match {:mvn/version "1.0.0"}}
+ :aliases
+ {:neil {:project {:name aoc22/aoc22}}
+  :nrepl ;; added by neil
+  {:extra-deps {nrepl/nrepl {:mvn/version "1.1.0-alpha1"}}
+   :main-opts ["-m" "nrepl.cmdline" "--interactive" "--color"]}
+  :download-input {:exec-fn aoc22.utils/download-input}}}
