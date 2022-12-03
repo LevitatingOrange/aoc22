@@ -4,22 +4,23 @@
 
 (definput)
 
-(def calories (let [lines (str/split-lines input)]
+(defn get-calories [input] (let [lines (str/split-lines input)]
                 (->> lines
                      (pmap #(if (empty? %) nil (Integer/parseInt %)))
                      (partition-by nil?)
                      (filter #(some some? %))
                      (pmap #(reduce + %)))))
 
-(defn part-1 []
-  (apply max calories))
+(defn part-1 [input]
+  (apply max (get-calories input)))
 
-(defn part-2 []
-  (->> calories
+(defn part-2 [input]
+  (->> input
+       (get-calories)
        (sort >)
        (take 3)
        (reduce +)))
 
 (comment
-  (part-1)
-  (part-2))
+  (part-1 input)
+  (part-2 input))

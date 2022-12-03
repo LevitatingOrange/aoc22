@@ -15,6 +15,7 @@
   (s/valid? (s/and int? #(< % 24) #(> % 0)) 25)
   (-> *ns* str (str/split #"\.") peek))
 
+
 (defn download-input [&
                       {:keys [day aoc-session-key inputs-folder overwrite]
                        :or {aoc-session-key (System/getenv "AOC_SESSION_KEY")

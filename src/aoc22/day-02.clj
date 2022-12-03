@@ -52,13 +52,13 @@
          [:scissors :loose] [2 0])]
       (+ t_score w_score)))
 
-(defn part-1 []
+(defn part-1 [input]
   (let [lines (str/split-lines input)
         scores (->> lines
                     (pmap #(apply play-round-1 (pmap parse-hand-1 (str/split % #" ")))))]
     (reduce + scores)))
 
-(defn part-2 []
+(defn part-2 [input]
   (let [lines (str/split-lines input)
         scores (->> lines
                     (pmap #(apply play-round-2 (pmap parse-hand-2 (str/split % #" ")))))]
@@ -67,5 +67,5 @@
 (comment
   (pmap #(apply play-round-1 (pmap parse-hand-1 %)) [["A" "Y"] ["B" "X"] ["C" "Z"]])
   (pmap #(apply play-round-2 (pmap parse-hand-2 %)) [["A" "Y"] ["B" "X"] ["C" "Z"]])
-  (part-1)
-  (part-2))
+  (part-1 input)
+  (part-2 input))
