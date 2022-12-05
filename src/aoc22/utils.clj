@@ -30,7 +30,7 @@
     (if (and (not overwrite) (-> path (io/file) (.exists)))
       (throw (Exception. "input file exists. use :overwrite true to overwrite")))
     (println "Downloading from" url "...")
-    (spit path (:body (http/get url {:headers {"Cookie" cookie}})))
+    (spit path (:body (http/get url {:headers {"Cookie" cookie "User-Agent" "https://github.com/LevitatingOrange/aoc22 / lennart@vogelsang.berlin"}})))
     (println "Saved in" path "!")))
 
 (defn load-input [& {:keys [inputs-folder] :or {inputs-folder "inputs"}}]

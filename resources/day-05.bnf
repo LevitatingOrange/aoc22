@@ -1,0 +1,24 @@
+puzzle-input = stacks <empty-line+> movements
+
+stacks = stack-line+ stack-nums
+stack-line = (crate <whitespace>)* crate <endline>
+stack-nums = (<whitespaces> stack-identifier)+ <whitespaces>? <endline>
+<crate> = existing-crate | non-existing-crate
+existing-crate = <'['> char <']'>
+non-existing-crate = <#'[ ]{3}'>
+
+movements = movement+
+movement = <"move"> <whitespaces> quantity <whitespaces> <"from"> <whitespaces> from <whitespaces> <"to"> <whitespaces> to <endline>
+from = stack-identifier
+to = stack-identifier
+quantity = number
+
+number = digits
+stack-identifier = digits
+<digits> = #'[\pN]+'
+<char> = #'\pL'
+<digit> = #'\pN'
+empty-line = whitespace* endline
+whitespace = #'[ \t]'
+whitespaces = #'[ \t]+'
+endline = #'\r\n|[\r\n]'

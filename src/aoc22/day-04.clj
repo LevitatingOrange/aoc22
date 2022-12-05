@@ -4,6 +4,8 @@
             [clojure.core.match :refer [match]]
             [clojure.set :refer [intersection]]))
 
+(definput)
+
 (defn check-contains-1 [min_1, max_1, min_2, max_2]
   (cond
     (and (<= min_1 min_2) (>= max_1 max_2)) :fst
@@ -37,7 +39,6 @@
        (count)))
 
 
-(definput)
 (comment
   (check-contains-2 6 6 4)
   (check-line "4-8,3-9")

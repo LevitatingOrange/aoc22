@@ -1,0 +1,5 @@
+puzzle-input = stacks empty-line+ movements
+stacks = "a"+
+movements = "b"+
+empty-line = whitespace (CRLF | LF)
+whitespace = #'\\s+'

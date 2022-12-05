@@ -1,4 +1,4 @@
-{:paths ["src"]
+{:paths ["src" "resources"]
  :deps  {hato/hato {:mvn/version "0.9.0"}
          org.clojure/core.match {:mvn/version "1.0.0"}
          instaparse/instaparse {:mvn/version "1.4.12"}}
